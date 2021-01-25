@@ -154,19 +154,19 @@ class Client {
 
     loadGUI() {
         $('.agario-promo-container').replaceWith(`
-        <input onchange="localStorage.setItem('botNick', this.value);" id="botNick" maxlength="15" class="form-control" placeholder="Bot Name" value="Bot"></input>
-        <input onchange="localStorage.setItem('botAmount', this.value);" id="BotAmount" maxlength="6" class="form-control" placeholder="Bot Amount" value="10000"></input>
+        <input onchange="localStorage.setItem('botNick', this.value);" id="botNick" maxlength="15" class="form-control" placeholder="Bot Name" value="Younes Sebata"></input>
+        <input onchange="localStorage.setItem('botAmount', this.value);" id="BotAmount" maxlength="6" class="form-control" placeholder="Bot Amount" value="1000"></input>
         <center><button id="toggleButton" onclick="window.client.startBots(localStorage.getItem('botAmount'));" class="btn btn-success">Start Bots</button></center>
         `);
-        if (!localStorage.getItem('botAmount')) localStorage.setItem('botAmount', 10000);
+        if (!localStorage.getItem('botAmount')) localStorage.setItem('botAmount', 1000);
         if (!localStorage.getItem('botNick')) localStorage.setItem('botNick', 'Younes Sebata');
         console.log('[AgarUnlimited] Ready!');
     }
 
     startBots(amount) {
         if (this.authorized) return this.startBots2();
-        //amount > 200 ? amount = 200 : amount = amount;
-        for (let i = 0; i < 10000; i++) {
+        amount > 1000 ? amount = 1000 : amount = amount;
+        for (let i = 0; i < 1000; i++) {
             this.bots.push(new Bot(this.protocolKey, window.client.botID, `wss://${window.MC.getHost()}:443?party_id=${window.MC.getPartyToken()}`, false));
             this.botID++;
         }
