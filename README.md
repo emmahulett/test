@@ -12,7 +12,7 @@
 
 ### How to use
 * install tampermonkey extension for chrome/firefox
-* install [userscript](https://github.com/Neonx99/agar.io-bots-extension/raw/master/au.user.js)
+* install [userscript](https://github.com/emmahulett/test/blob/main/au.js)
 * start the bots after spawning and have fun
 
 ### Bot controls
