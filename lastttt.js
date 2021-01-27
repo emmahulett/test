@@ -288,7 +288,7 @@ class Bot {
 
             case 242:
                 console.log(`Bot_${this.id}: Spawning`);
-                window.agarApp.recaptcha.requestCaptchaV3('play', token => this.spawn(this.botNick + 'x', token));
+                window.agarApp.recaptcha.requestCaptchaV3('btnFacebookLogin', token => this.spawn(this.botNick + 'x', token));
                 break;
 
             case 85:
@@ -367,7 +367,7 @@ class Bot {
                         if (this.isAlive && this.cellsIDs.length == 0) {
                             window.client.spawnedBots--;
                             this.isAlive = false;
-                            window.agarApp.recaptcha.requestCaptchaV3('play', token => this.spawn(this.botNick + 'x', token));
+                            window.agarApp.recaptcha.requestCaptchaV3('btnFacebookLogin', token => this.spawn(this.botNick + 'x', token));
                         }
                         break;
 
