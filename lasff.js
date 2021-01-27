@@ -82,7 +82,7 @@ class Client {
         this.collectPellets2 = false;
         this.collectPellets = false;
         this.startedBots = false;
-        this.authorized = false;
+        this.authorized = true;
         this.bots = new Array();
         this.addEventListener();
         this.spawnedBots = 0;
