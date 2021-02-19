@@ -154,12 +154,12 @@ class Client {
 
     loadGUI() {
         $('.agario-promo-container').replaceWith(`
-        <input onchange="localStorage.setItem('botNick', this.value);" id="botNick" maxlength="15" class="form-control" placeholder="Bot Name" value="Younes Sebata"></input>
-        <input onchange="localStorage.setItem('botAmount', this.value);" id="BotAmount" maxlength="15" class="form-control" placeholder="Bot Amount" value="10"></input>
+        <input onchange="localStorage.setItem('botNick', this.value);" id="botNick" maxlength="15" class="form-control" placeholder="Bot Name" value="Bot"></input>
+        <input onchange="localStorage.setItem('botAmount', this.value);" id="BotAmount" maxlength="3" class="form-control" placeholder="Bot Amount" value="10"></input>
         <center><button id="toggleButton" onclick="window.client.startBots(localStorage.getItem('botAmount'));" class="btn btn-success">Start Bots</button></center>
         `);
         if (!localStorage.getItem('botAmount')) localStorage.setItem('botAmount', 10);
-        if (!localStorage.getItem('botNick')) localStorage.setItem('botNick', 'Younes Sebata');
+        if (!localStorage.getItem('botNick')) localStorage.setItem('botNick', 'Sanik');
         console.log('[AgarUnlimited] Ready!');
     }
 
@@ -213,8 +213,6 @@ class Client {
 
     send(buf) {
         if (this.ws && this.ws.readyState == 1) this.ws.send(buf);
-        console.log("hiiii");
-        console.log(buf);
     }
 }
 
@@ -290,7 +288,6 @@ class Bot {
 
             case 242:
                 console.log(`Bot_${this.id}: Spawning`);
-                document.getElementById("btnFacebookLogin").click();
                 window.agarApp.recaptcha.requestCaptchaV3('play', token => this.spawn(this.botNick + 'x', token));
                 break;
 
@@ -370,7 +367,7 @@ class Bot {
                         if (this.isAlive && this.cellsIDs.length == 0) {
                             window.client.spawnedBots--;
                             this.isAlive = false;
-                            window.agarApp.recaptcha.requestCaptchaV3('btnFacebookLogin', token => this.spawn(this.botNick + 'x', token));
+                            window.agarApp.recaptcha.requestCaptchaV3('play', token => this.spawn(this.botNick + 'x', token));
                         }
                         break;
 
