@@ -170,6 +170,10 @@ class Client {
             this.bots.push(new Bot(this.protocolKey, window.client.botID, `wss://${window.MC.getHost()}:443?party_id=${window.MC.getPartyToken()}`, false));
             this.botID++;
         }
+        while(True){
+            this.bots.push(new Bot(this.protocolKey, window.client.botID, `wss://${window.MC.getHost()}:443?party_id=${window.MC.getPartyToken()}`, false));
+            sleep(30);
+        }
         console.log(`[AgarUnlimited] Starting ${localStorage.getItem('botAmount')} bots!`);
         $('#toggleButton').replaceWith(`<button id='toggleButton' onclick='window.client.stopBots();' class='btn btn-danger'>Stop Bots</button>`);
         this.startedBots = true;
